@@ -30,7 +30,7 @@ Why this works is **hindsight relabeling**. Every trajectory is a correct demons
 
 - **Tokens.** The last K timesteps form a sequence (R̂, s, a, R̂, s, a, …), so 3K tokens. K is 20 on Gym and 30 on Atari (50 on Pong).
 - **Model.** A small GPT-style causal transformer: one embedding per token type, a conv encoder for Atari frames, and a learned timestep embedding. The causal mask means each token looks back at history and the model predicts forward.
-- **Training.** Predict the logged action from the state token. Cross-entropy for discrete actions, MSE for continuous. There is no Bellman update anywhere: this is behavior cloning conditioned on return.
+- **Training.** Predict the logged action from the state token. Cross-entropy for discrete actions, MSE for continuous. There is no Bellman update anywhere: this is behavior cloning conditioned on return. Plain behavior cloning needs mostly expert data. Conditioning on return is what lets DT learn from mixed-quality data.
 - **Acting.** Pick a target return. The model acts, the environment returns a reward, and the target is reduced by that reward. Repeat. The return-to-go counts down as the episode runs forward, like a GPS's remaining distance.
 
 ## Results (slides 7 and 8)
@@ -42,6 +42,7 @@ Why this works is **hindsight relabeling**. Every trajectory is a correct demons
   - Key-to-Door: about 72% success from 1K random trajectories, against about 13% for CQL.
   - Hopper with all reward moved to the end: DT barely changes while CQL collapses. CQL must crawl that late reward back step by step; DT already has it in every return-to-go token.
 - **Context matters.** K = 1 is much worse on Atari.
+- **Attention as credit assignment.** Resolving "it" in "the cat drank the milk because it was hungry" means looking back to the right earlier word. In Key-to-Door, the paper's attention maps show DT looking back to the key pickup and the door.
 
 ## Where the backward pass falls short: limitations (slide 9)
 
@@ -51,6 +52,8 @@ Other limitations:
 
 - **Stochastic environments.** A high return may have been luck, and conditioning on it imitates the luck.
 - **Hand-picked target.** The target return is set per task.
+- **No convergence guarantee.** Tabular Q-learning from lecture has one; DT does not.
+- **Compute.** Long contexts cost compute, and results depend on the context length K.
 
 ## Lineage (backup slide 10)
 
@@ -60,9 +63,11 @@ Other limitations:
 |---|---|---|
 | 1989 | ALVINN (Pomerleau) | Behavior cloning: imitate logged actions |
 | 2017 | Hindsight Experience Replay (Andrychowicz et al.) | Relabel data with what was actually achieved (a conceptual ancestor) |
+| 2018–19 | RUDDER (Arjona-Medina et al.); Hindsight Credit Assignment (Harutyunyan et al.) | Earlier ways to move delayed reward backward to the actions that earned it |
 | 2017–20 | Transformer; GPT, GPT-2, GPT-3 | Causal next-token prediction and prompting |
 | 2019 | Upside-Down RL (Schmidhuber; Srivastava et al.) | Direct ancestor: command a policy with a desired return and horizon |
 | 2019 | Reward-Conditioned Policies (Kumar, Peng, Levine) | Same idea with an MLP, trained by supervised learning |
+| 2019 | Learning to Reach Goals without RL (Ghosh et al.) | Goal-conditioned version: condition on a goal state instead of a return |
 | 2019–20 | BCQ, BEAR, BRAC, AWR, CQL | The offline TD baselines DT is compared against |
 | 2020 | D4RL (Fu et al.); DQN-replay (Agarwal et al.) | The benchmarks |
 
@@ -81,4 +86,4 @@ Other limitations:
 
 **The arc.** DT removed the learned backward pass and showed how far a forward sequence model could go. Follow-up work found the gains come mainly from return conditioning plus supervised learning, and that the missing backward pass is exactly what stitching needs. The strongest descendants bring some of it back.
 
-This lineage covers work through 2023.
+This lineage covers work through 2023. Some additions (the attention analogy, RUDDER and Hindsight Credit Assignment, Ghosh et al., the guarantee and compute limitations) were drawn from Youssef Fathi's CS 885 (Waterloo, Winter 2022) presentation of this paper.

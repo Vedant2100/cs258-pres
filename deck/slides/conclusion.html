@@ -16,6 +16,7 @@
 <li>The target return is hand-picked per task.</li>
 <li>One fixed target fits stochastic outcomes poorly; the authors suggest modeling return distributions.</li>
 <li>Can trail TD methods on some tasks (Qbert).</li>
+<li>No convergence guarantee like tabular Q-learning’s; long contexts cost compute.</li>
 <li>Later work questions how well it stitches sub-optimal trajectories.</li>
 </ul>
 </div>
@@ -23,5 +24,5 @@
 <p class="thread rise d4"><b>The thread:</b> credit is computed backward once, in hindsight; actions are generated forward. But that backward pass stays inside each trajectory, which is why DT can’t stitch.</p>
 <p class="q rise d5">Questions?</p>
 <div class="foot"><p>Chen et al., NeurIPS 2021</p><p>9 / 9</p></div>
-<aside>About 50 seconds, then Q&amp;A. "To wrap up: offline RL can be framed as sequence prediction, the return works as a prompt, and the approach is especially strong when rewards are sparse or delayed. Limits: you pick the target return by hand; a single return target fits stochastic environments poorly, and the authors point to return distributions as future work; it trails CQL on some games like Qbert; and later papers question how well it combines pieces of sub-optimal trajectories. The one-line thread: credit is computed backward once, in hindsight, and actions are generated forward. Because that backward pass never crosses between trajectories, DT can't stitch. Thank you, happy to take questions."</aside>
+<aside>About 50 seconds, then Q&amp;A. "To wrap up: offline RL can be framed as sequence prediction, the return works as a prompt, and the approach is especially strong when rewards are sparse or delayed. Limits: you pick the target return by hand; a single return target fits stochastic environments poorly, and the authors point to return distributions as future work; it trails CQL on some games like Qbert; unlike tabular Q-learning from lecture, it comes with no convergence guarantee, and long contexts cost compute; and later papers question how well it combines pieces of sub-optimal trajectories. The one-line thread: credit is computed backward once, in hindsight, and actions are generated forward. Because that backward pass never crosses between trajectories, DT can't stitch. Thank you, happy to take questions."</aside>
 </section>

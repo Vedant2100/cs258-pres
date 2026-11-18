@@ -1,16 +1,17 @@
 <section id="lineage" data-transition="fade">
 <div class="prog"><p class="st">Motivation &amp; Problem</p><p class="st">Main Idea</p><p class="st">Method</p><p class="st">Results</p><p class="st">Conclusion</p><p class="st on">Backup: Lineage</p></div>
 <h2 class="rise">Lineage: looking back, looking forward</h2>
-<div class="lin">
+<div class="lin" style="gap:28px;margin-top:-12px;">
 <div class="lcol">
 <p class="lhead rise d1">← Looking back</p>
 <p class="li rise d6"><b>1989 ALVINN:</b> behavior cloning, imitate logged actions</p>
 <p class="li rise d5"><b>2017 Hindsight Experience Replay:</b> relabel data with what was actually achieved</p>
 <p class="li rise d4"><b>2017–20 Transformer, GPT:</b> causal next-token prediction, prompting</p>
-<p class="li rise d3"><b>2019 Upside-Down RL, Reward-Conditioned Policies:</b> command a policy with a desired return</p>
+<p class="li rise d4"><b>2018–19 RUDDER, Hindsight Credit Assignment:</b> move delayed reward back to the actions that earned it</p>
+<p class="li rise d3"><b>2019 Upside-Down RL, Reward-Conditioned Policies, Ghosh et al.:</b> command a policy with a desired return or goal</p>
 <p class="li rise d2"><b>2019–20 BCQ, BEAR, CQL:</b> offline TD with constraints or pessimism</p>
 </div>
-<div class="hub pop d1">
+<div class="hub pop d1" style="width:220px;">
 <p class="a">Decision Transformer</p>
 <p class="b">NeurIPS 2021</p>
 </div>
@@ -24,5 +25,5 @@
 </div>
 </div>
 <div class="foot"><p>Backup slide for Q&amp;A</p><p>Backup</p></div>
-<aside>Backup slide for Q&amp;A, not part of the 8 minutes. Left, looking back: behavior cloning, hindsight relabeling, the GPT stack, and the direct ancestors, Upside-Down RL and reward-conditioned policies, which already commanded a policy with a desired return. Also the offline TD methods DT is compared against. Right, looking forward: Trajectory Transformer was concurrent and plans with beam search. RvS showed the transformer isn't essential. Online DT and Multi-Game DT extended it. Brandfonbrener et al. and Paster et al. formalized the limits: no stitching, and stochastic environments reward luck. Q-learning DT patches stitching by relabeling return-to-go with learned Q-values, which brings a learned backward pass back. Elastic DT, also 2023, tackles stitching differently, by adapting how much history the model sees.</aside>
+<aside>Backup slide for Q&amp;A, not part of the 8 minutes. Left, looking back: behavior cloning, hindsight relabeling, the GPT stack, and earlier credit-assignment methods, RUDDER and Hindsight Credit Assignment, which redistribute delayed reward backward to the actions that earned it. Then the direct ancestors: Upside-Down RL and reward-conditioned policies, which already commanded a policy with a desired return, and Ghosh et al.'s goal-conditioned version, learning to reach goals with supervised learning. Also the offline TD methods DT is compared against. Right, looking forward: Trajectory Transformer was concurrent and plans with beam search. RvS showed the transformer isn't essential. Online DT and Multi-Game DT extended it. Brandfonbrener et al. and Paster et al. formalized the limits: no stitching, and stochastic environments reward luck. Q-learning DT patches stitching by relabeling return-to-go with learned Q-values, which brings a learned backward pass back. Elastic DT, also 2023, tackles stitching differently, by adapting how much history the model sees.</aside>
 </section>

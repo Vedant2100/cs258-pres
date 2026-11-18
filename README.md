@@ -29,7 +29,7 @@ Motivation & Problem → Main Idea → Method → Results → Conclusion.
 | 7 | Benchmark results | 1:10 |
 | 8 | Credit assignment results | 0:50 |
 | 9 | Conclusion, limitations & the backward/forward thread | 0:50 |
-|   | **Total** | **≈8:00–8:15** |
+|   | **Total** | **≈8:15–8:30** |
 | 10 | Backup: lineage, looking back / forward | Q&A only |
 
 All numbers are from Chen et al. (2021), Tables 1, 2, 6 and 7. The hospital scenario is illustrative; the paper does not evaluate it.
