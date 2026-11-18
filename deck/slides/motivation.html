@@ -1,5 +1,6 @@
 <section id="motivation" data-transition="fade">
 <div class="prog"><p class="st on">Motivation &amp; Problem</p><p class="st">Main Idea</p><p class="st">Method</p><p class="st">Results</p><p class="st">Conclusion</p></div>
+<p class="dir back fadein d5">← TD: credit crawls backward</p>
 <h2 class="rise">Problem: learning only from logged data</h2>
 <div class="cols">
 <div class="colL">
@@ -39,5 +40,5 @@
 </div>
 </div>
 <div class="foot"><p>Chen et al., NeurIPS 2021</p><p>2 / 9</p></div>
-<aside>About 1 minute. "Offline RL means learning a policy only from a fixed log, with no new interaction. A hospital is the clearest case: you can't experiment on patients, but you do have records of past treatments and outcomes. Standard TD methods struggle here: they bootstrap, training value estimates on their own estimates, so errors compound; they overrate actions the data never tried; and sparse, delayed rewards travel slowly through Bellman backups. In lecture terms, offline Q-learning has all three parts of the deadly triad: function approximation, bootstrapping and off-policy data. The paper explicitly avoids bootstrapping for that reason." Note: the hospital is an illustrative scenario; the paper itself does not run medical experiments.</aside>
+<aside>About 1 minute. "Offline RL means learning a policy only from a fixed log, with no new interaction. A hospital is the clearest case: you can't experiment on patients, but you do have records of past treatments and outcomes. Standard TD methods struggle here: they bootstrap, training value estimates on their own estimates, so errors compound; they overrate actions the data never tried; and sparse, delayed rewards travel slowly through Bellman backups. In lecture terms, offline Q-learning has all three parts of the deadly triad: function approximation, bootstrapping and off-policy data. The paper explicitly avoids bootstrapping for that reason. Keep one picture in mind for the talk: in TD learning, credit crawls backward, one backup at a time." Note: the hospital is an illustrative scenario; the paper itself does not run medical experiments.</aside>
 </section>

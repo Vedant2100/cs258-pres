@@ -1,5 +1,6 @@
 <section id="model" data-transition="fade">
 <div class="prog"><p class="st">Motivation &amp; Problem</p><p class="st">Main Idea</p><p class="st on">Method</p><p class="st">Results</p><p class="st">Conclusion</p></div>
+<p class="dir fwd fadein d5">Looks back, predicts forward →</p>
 <h2 class="rise">Method: architecture and training</h2>
 <div class="cols">
 <div class="colW" style="width:760px;">
@@ -39,5 +40,5 @@
 </div>
 </div>
 <div class="foot"><p>Chen et al., NeurIPS 2021</p><p>5 / 9</p></div>
-<aside>About 1 minute. "The model takes the last K timesteps, so 3K tokens. Each token type gets its own linear embedding, a conv encoder for Atari frames, plus a learned timestep embedding. A GPT with a causal mask processes them, and the output at each state token predicts the action. The loss is just prediction error on the logged action. There is no Bellman update anywhere. In course terms this is behavior cloning, conditioned on return, rather than Q-learning or actor-critic." Details if asked: K = 30 on Atari except Pong, which uses 50; K = 20 on the Gym tasks.</aside>
+<aside>About 1 minute. "The model takes the last K timesteps, so 3K tokens. Each token type gets its own linear embedding, a conv encoder for Atari frames, plus a learned timestep embedding. A GPT with a causal mask processes them, and the output at each state token predicts the action. The loss is just prediction error on the logged action. There is no Bellman update anywhere. In course terms this is behavior cloning, conditioned on return, rather than Q-learning or actor-critic. The causal mask means it only looks back at history and only predicts forward." Details if asked: K = 30 on Atari except Pong, which uses 50; K = 20 on the Gym tasks.</aside>
 </section>
