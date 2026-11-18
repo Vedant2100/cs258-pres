@@ -1,0 +1,36 @@
+<section id="idea" data-transition="fade">
+<div class="prog"><p class="st">Motivation &amp; Problem</p><p class="st on">Main Idea</p><p class="st">Method</p><p class="st">Results</p><p class="st">Conclusion</p></div>
+<h2 class="rise">Main idea: RL as conditional sequence modeling</h2>
+<div class="row rise d1" style="margin-bottom:22px;">
+<p class="lab">Language model</p>
+<p class="chip">Prompt: “a story with a happy ending”</p>
+<p class="arrow">→</p>
+<p class="chip dark">GPT</p>
+<p class="arrow">→</p>
+<p class="chip">next word</p>
+</div>
+<div class="row rise d3" style="margin-bottom:56px;">
+<p class="lab" style="color:#2E5EA8;">Decision Transformer</p>
+<p class="chip" style="background:#F7E7C4;">Prompt: desired return + states so far</p>
+<p class="arrow">→</p>
+<p class="chip dark">GPT</p>
+<p class="arrow">→</p>
+<p class="chip" style="background:#DCE8DA;">next action</p>
+</div>
+<div style="display:flex;gap:36px;">
+<div class="card pop d5" style="flex:1;">
+<h3>No value function</h3>
+<p class="t">Offline RL becomes next-token prediction: no Bellman backups, no policy gradients.</p>
+</div>
+<div class="card pop d6" style="flex:1;">
+<h3>Return as a prompt</h3>
+<p class="t">Conditioning on return-to-go lets you choose the desired performance at test time.</p>
+</div>
+<div class="card pop d7" style="flex:1;">
+<h3>Competitive results</h3>
+<p class="t">Matches or beats state-of-the-art model-free offline RL on Atari, Gym and Key-to-Door.</p>
+</div>
+</div>
+<div class="foot"><p>Chen et al., NeurIPS 2021</p><p>3 / 9</p></div>
+<aside>About 1 minute. "The central move is to drop the value function and treat RL like language modeling. A language model completes a prompt. Here the prompt is the return you want plus the states so far, and the completion is the next action. Three contributions: offline RL becomes next-token prediction with no Bellman backups or policy gradients; the return is a prompt you choose at test time; and this simple recipe matches or beats state-of-the-art model-free offline RL on Atari, OpenAI Gym and Key-to-Door."</aside>
+</section>

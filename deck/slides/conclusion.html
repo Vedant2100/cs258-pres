@@ -1,0 +1,26 @@
+<section id="conclusion" class="alt" data-transition="fade">
+<div class="prog"><p class="st">Motivation &amp; Problem</p><p class="st">Main Idea</p><p class="st">Method</p><p class="st">Results</p><p class="st on">Conclusion</p></div>
+<h2 class="rise">Conclusion</h2>
+<div style="display:flex;gap:48px;align-items:stretch;">
+<div class="card pop d1" style="flex:1;">
+<h3>Takeaways</h3>
+<ul style="font-size:26px;">
+<li>Offline RL can be posed as supervised sequence prediction, with no Bellman backups.</li>
+<li>Return-to-go is a prompt: set the goal at test time.</li>
+<li>Strong at long-term credit assignment and sparse reward.</li>
+</ul>
+</div>
+<div class="card warn pop d3" style="flex:1;">
+<h3>Limitations</h3>
+<ul style="font-size:26px;">
+<li>The target return is hand-picked per task.</li>
+<li>One fixed target fits stochastic outcomes poorly; the authors suggest modeling return distributions.</li>
+<li>Can trail TD methods on some tasks (Qbert).</li>
+<li>Later work questions how well it stitches sub-optimal trajectories.</li>
+</ul>
+</div>
+</div>
+<p class="q rise d5">Questions?</p>
+<div class="foot"><p>Chen et al., NeurIPS 2021</p><p>9 / 9</p></div>
+<aside>About 50 seconds, then Q&amp;A. "To wrap up: offline RL can be framed as sequence prediction, the return works as a prompt, and the approach is especially strong when rewards are sparse or delayed. Limits: you pick the target return by hand; a single return target fits stochastic environments poorly, and the authors point to return distributions as future work; it trails CQL on some games like Qbert; and later papers question how well it combines pieces of sub-optimal trajectories. Thank you, happy to take questions."</aside>
+</section>
