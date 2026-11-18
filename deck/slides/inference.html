@@ -1,0 +1,38 @@
+<section id="inference" data-transition="fade">
+<div class="prog"><p class="st">Motivation &amp; Problem</p><p class="st">Main Idea</p><p class="st on">Method</p><p class="st">Results</p><p class="st">Conclusion</p></div>
+<p class="dir fwd fadein d5">Acts forward; R̂ counts down →</p>
+<h2 class="rise">Method: acting at test time</h2>
+<div class="cols">
+<div style="position:relative;width:740px;height:540px;flex:none;">
+<svg class="fadein d1" viewBox="0 0 740 540" width="740" height="540" aria-label="A loop: set a target return, the model outputs an action, the environment returns a state and reward, the target is reduced by the reward">
+<ellipse cx="370" cy="270" rx="250" ry="190" fill="none" stroke="#AFC6EF" stroke-width="6"/>
+<circle cx="370" cy="80" r="13" fill="#B8443C">
+<animateMotion dur="6s" begin="1.2s" repeatCount="2" path="M0,0 A250,190 0 0 1 0,380 A250,190 0 0 1 0,0"/>
+</circle>
+</svg>
+<div class="pop d1" style="position:absolute;left:240px;top:30px;width:260px;background:#F1C47E;border-radius:12px;padding:12px 0;">
+<p style="font-size:26px;font-weight:700;text-align:center;margin:0;">1. Set target R̂</p>
+<p style="font-size:24px;text-align:center;margin:0;">e.g. an expert score</p>
+</div>
+<div class="pop d3" style="position:absolute;left:480px;top:220px;width:260px;background:#22314F;border-radius:12px;padding:12px 0;">
+<p style="font-size:26px;font-weight:700;text-align:center;color:#F6F4EE;margin:0;">2. Model outputs aₜ</p>
+<p style="font-size:24px;text-align:center;color:#F6F4EE;margin:0;">from the last K steps</p>
+</div>
+<div class="pop d5" style="position:absolute;left:240px;top:420px;width:260px;background:#BFE0B8;border-radius:12px;padding:12px 0;">
+<p style="font-size:26px;font-weight:700;text-align:center;margin:0;">3. Environment</p>
+<p style="font-size:24px;text-align:center;margin:0;">returns sₜ₊₁ and rₜ</p>
+</div>
+<div class="pop d7" style="position:absolute;left:0px;top:220px;width:260px;background:#FBFAF6;border:2px solid #22314F;border-radius:12px;padding:10px 0;">
+<p style="font-size:26px;font-weight:700;text-align:center;margin:0;">4. R̂ ← R̂ − rₜ</p>
+<p style="font-size:24px;text-align:center;margin:0;">append, repeat</p>
+</div>
+</div>
+<div class="colL">
+<p class="rise d3"><b>Analogy:</b> a GPS. The remaining distance shrinks after each turn, and the route is recomputed from where you are.</p>
+<p class="rise d5" style="margin-top:24px;">The target return is a dial: raise it to ask for better behavior.</p>
+<p class="note rise d7" style="margin-top:24px;">It is hand-picked per task. On Atari the authors used about 1× or 5× the best return in the dataset.</p>
+</div>
+</div>
+<div class="foot"><p>Chen et al., NeurIPS 2021</p><p>6 / 9</p></div>
+<aside>About 50 seconds. "At test time you choose a target return, say an expert-level score. The model outputs an action, the environment gives back a new state and a reward, and you subtract that reward from the target before the next step. Like a GPS, the remaining distance shrinks and the route is recomputed from where you are. The target is a dial you set by hand; on Atari the authors used roughly 1 times or 5 times the best return in the dataset, depending on the game."</aside>
+</section>

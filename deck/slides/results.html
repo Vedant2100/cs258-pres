@@ -1,0 +1,33 @@
+<section id="results" data-transition="fade">
+<div class="prog"><p class="st">Motivation &amp; Problem</p><p class="st">Main Idea</p><p class="st">Method</p><p class="st on">Results</p><p class="st">Conclusion</p></div>
+<h2 class="rise">Results: standard offline RL benchmarks</h2>
+<div class="cols" style="gap:64px;">
+<div class="colL rise d1">
+<h3>Atari, 1% of DQN-replay data</h3>
+<table class="bt">
+<tr><th class="left">Game</th><th>DT</th><th>CQL</th><th>QR-DQN</th><th>REM</th><th>BC</th></tr>
+<tr><td class="left">Breakout</td><td class="best">267.5</td><td>211.1</td><td>17.1</td><td>8.9</td><td>138.9</td></tr>
+<tr><td class="left">Qbert</td><td>15.4</td><td class="best">104.2</td><td>0.0</td><td>0.0</td><td>17.3</td></tr>
+<tr><td class="left">Pong</td><td>106.1</td><td class="best">111.9</td><td>18.0</td><td>0.5</td><td>85.2</td></tr>
+<tr class="last"><td class="left">Seaquest</td><td class="best">2.5</td><td>1.7</td><td>0.4</td><td>0.7</td><td>2.1</td></tr>
+</table>
+<p class="note" style="margin-top:12px;">Gamer-normalized: 100 = pro gamer, 0 = random. 3 seeds.</p>
+</div>
+<div style="width:700px;flex:none;">
+<h3 class="rise d2">D4RL Gym: average normalized score</h3>
+<div class="chart">
+<div class="bcol"><p class="bv fadein d8" style="font-weight:700;color:#2E5EA8;">74.7</p><div class="bfill dt grow d3" style="height:299px;"></div></div>
+<div class="bcol"><p class="bv fadein d8">63.9</p><div class="bfill grow d4" style="height:256px;"></div></div>
+<div class="bcol"><p class="bv fadein d8">48.2</p><div class="bfill grow d5" style="height:193px;"></div></div>
+<div class="bcol"><p class="bv fadein d8">46.4</p><div class="bfill grow d5" style="height:186px;"></div></div>
+<div class="bcol"><p class="bv fadein d8">36.9</p><div class="bfill grow d6" style="height:148px;"></div></div>
+<div class="bcol"><p class="bv fadein d8">34.3</p><div class="bfill grow d6" style="height:137px;"></div></div>
+</div>
+<div class="blab"><p style="font-weight:700;color:#2E5EA8;">DT</p><p>CQL</p><p>BEAR</p><p>BC</p><p>BRAC-v</p><p>AWR</p></div>
+<p class="note" style="margin-top:10px;">100 = expert. HalfCheetah, Hopper, Walker × 3 datasets.</p>
+</div>
+</div>
+<p class="rise d9" style="margin-top:20px;"><b>Takeaway:</b> DT is competitive with CQL on 3 of 4 games (clearly behind on Qbert) and has the best Gym average.</p>
+<div class="foot"><p>Source: Chen et al. (2021), Tables 1 and 2</p><p>7 / 9</p></div>
+<aside>About 1 minute 10 seconds. "On Atari, trained on only 1% of a DQN replay buffer, DT beats CQL on Breakout and Seaquest, is close on Pong, and is clearly behind on Qbert. On continuous control in D4RL, averaged over HalfCheetah, Hopper and Walker on three datasets each, DT scores 74.7 versus 63.9 for CQL, the best average in the table. So a pure supervised method holds its own against dedicated offline RL algorithms." Bar heights are drawn to scale (4 px per point).</aside>
+</section>

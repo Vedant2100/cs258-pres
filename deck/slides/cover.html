@@ -1,0 +1,40 @@
+<section id="cover" class="alt" data-transition="fade">
+<div class="cols" style="align-items:center;margin-top:40px;">
+<div class="colL">
+<h1 class="ttl rise">Decision Transformer</h1>
+<p class="sub rise d1">Reinforcement Learning via Sequence Modeling</p>
+<div class="rule fadein d2"></div>
+<p class="auth rise d2">Chen, Lu, Rajeswaran, Lee, Grover, Laskin, Abbeel, Srinivas, Mordatch · NeurIPS 2021</p>
+<p class="hook rise d3">Tell the model the score you want.<br>It writes the actions.</p>
+<p class="rise d4" style="color:#5C6372;">Can a GPT-style sequence model replace an RL algorithm?</p>
+<p class="by rise d5">CS 258 paper presentation · Vedant</p>
+</div>
+<div class="colR">
+<div style="display:grid;grid-template-columns:repeat(6,84px);column-gap:22px;row-gap:10px;align-items:center;">
+<p class="out pop d7" style="grid-column:2;grid-row:1;">â₁</p>
+<p class="out pop d8" style="grid-column:5;grid-row:1;">â₂</p>
+<x-shape kind="arrow-up" class="up fadein d7" style="grid-column:2;grid-row:2;"></x-shape>
+<x-shape kind="arrow-up" class="up fadein d8" style="grid-column:5;grid-row:2;"></x-shape>
+<p class="bar gpt fadein d6" style="grid-column:1 / 7;grid-row:3;">causal transformer (GPT)</p>
+<x-shape kind="arrow-up" class="up fadein d5" style="grid-column:1;grid-row:4;"></x-shape>
+<x-shape kind="arrow-up" class="up fadein d5" style="grid-column:2;grid-row:4;"></x-shape>
+<x-shape kind="arrow-up" class="up fadein d5" style="grid-column:3;grid-row:4;"></x-shape>
+<x-shape kind="arrow-up" class="up fadein d5" style="grid-column:4;grid-row:4;"></x-shape>
+<x-shape kind="arrow-up" class="up fadein d5" style="grid-column:5;grid-row:4;"></x-shape>
+<x-shape kind="arrow-up" class="up fadein d5" style="grid-column:6;grid-row:4;"></x-shape>
+<p class="tok tR pop d2" style="grid-column:1;grid-row:5;">R̂₁</p>
+<p class="tok tS pop d2" style="grid-column:2;grid-row:5;">s₁</p>
+<p class="tok tA pop d3" style="grid-column:3;grid-row:5;">a₁</p>
+<p class="tok tR pop d3" style="grid-column:4;grid-row:5;">R̂₂</p>
+<p class="tok tS pop d4" style="grid-column:5;grid-row:5;">s₂</p>
+<p class="tok tA pop d4" style="grid-column:6;grid-row:5;">a₂</p>
+<p class="tl" style="grid-column:1;grid-row:6;">return</p>
+<p class="tl" style="grid-column:2;grid-row:6;">state</p>
+<p class="tl" style="grid-column:3;grid-row:6;">action</p>
+</div>
+<p class="cap">Adapted from Chen et al. (2021), Fig. 1</p>
+</div>
+</div>
+<div class="foot"><p>Chen et al., NeurIPS 2021</p><p>1 / 9</p></div>
+<aside>About 30 seconds. "Today I'm presenting Decision Transformer, from NeurIPS 2021. The one-line pitch: tell the model the score you want, and it writes the actions. The question the paper asks is whether a GPT-style sequence model, trained with plain supervised learning, can replace a reinforcement learning algorithm." The figure animates: return, state and action tokens go into a causal transformer, which predicts an action at each state token.</aside>
+</section>

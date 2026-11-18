@@ -1,0 +1,40 @@
+<section id="tokens" data-transition="fade">
+<div class="prog"><p class="st">Motivation &amp; Problem</p><p class="st">Main Idea</p><p class="st on">Method</p><p class="st">Results</p><p class="st">Conclusion</p></div>
+<p class="dir back fadein d5">← Computed backward, once</p>
+<h2 class="rise">Method: a trajectory as a sequence of tokens</h2>
+<div class="row" style="gap:12px;margin-bottom:44px;">
+<p class="tok tR pop d1">R̂₁</p><p class="tok tS pop d1">s₁</p><p class="tok tA pop d1">a₁</p>
+<p class="tok tR pop d2" style="margin-left:18px;">R̂₂</p><p class="tok tS pop d2">s₂</p><p class="tok tA pop d2">a₂</p>
+<p class="tok tR pop d3" style="margin-left:18px;">R̂₃</p><p class="tok tS pop d3">s₃</p><p class="tok tA pop d3">a₃</p>
+<p class="arrow fadein d4" style="margin-left:12px;">…</p>
+</div>
+<div class="cols">
+<div class="colL">
+<p class="rise d3"><span class="em">Return-to-go</span> R̂ₜ = rₜ + rₜ₊₁ + … + r_T: the reward still to come from step t.</p>
+<p class="rise d4">The model sees future return, not past reward, so a goal can be given as a prompt.</p>
+<div class="c258 rise d8" style="margin-top:28px;">
+<p class="k">CS 258 LINK</p>
+<p class="t">R̂ₜ is the Monte Carlo return Gₜ from lecture with γ = 1. The paper deliberately uses no discounting.</p>
+</div>
+</div>
+<div class="colR" style="width:620px;">
+<div style="display:grid;grid-template-columns:260px repeat(3,96px);column-gap:12px;row-gap:12px;align-items:center;">
+<p style="margin:0;font-weight:700;">Step t</p>
+<p class="tl" style="font-weight:700;color:#1C2230;font-size:28px;">1</p>
+<p class="tl" style="font-weight:700;color:#1C2230;font-size:28px;">2</p>
+<p class="tl" style="font-weight:700;color:#1C2230;font-size:28px;">3</p>
+<p style="margin:0;">Reward rₜ</p>
+<p class="tok tA rise d4" style="width:96px;">1</p>
+<p class="tok tA rise d4" style="width:96px;">0</p>
+<p class="tok tA rise d4" style="width:96px;">2</p>
+<p style="margin:0;">Return-to-go R̂ₜ</p>
+<p class="tok tR pop d8" style="width:96px;">3</p>
+<p class="tok tR pop d7" style="width:96px;">2</p>
+<p class="tok tR pop d6" style="width:96px;">2</p>
+</div>
+<p class="cap fadein d8">Toy example: R̂ₜ is filled backward from the episode’s end</p>
+</div>
+</div>
+<div class="foot"><p>Chen et al., NeurIPS 2021</p><p>4 / 9</p></div>
+<aside>About 50 seconds. "Each timestep becomes three tokens: return-to-go, state, action. Return-to-go is the reward still to come. In this toy episode the rewards are 1, 0 and 2, so working backward from the end, return-to-go is 2, then 2, then 3. Connecting to class: this is the Monte Carlo return G-t with gamma equal to 1; the paper deliberately avoids discounting. Feeding future return instead of past reward is what lets us prompt the model with a goal. Compare with TD: the backward pass still happens, but once, exactly, by summing rewards in hindsight, not learned through backups." Index note if asked: the paper's R̂ₜ includes rₜ itself; Sutton and Barto's Gₜ starts at rₜ₊₁. Same idea, shifted index.</aside>
+</section>
